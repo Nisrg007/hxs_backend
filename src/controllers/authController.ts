@@ -98,7 +98,7 @@ export const loginWithAssignmentToken = asyncHandler(async (req: Request, res: R
   return res.json({
     access_token: tokens.access_token,
     refresh_token: tokens.refresh_token,
-    expires_in: 900, // 15 minutes in seconds
+    expires_in: 3600, // 15 minutes in seconds
     cart: {
       cart_id: cart.cart_id,
       vendor_id: cart.vendor_id,
@@ -169,7 +169,7 @@ export const refreshToken = asyncHandler(async (req: Request, res: Response) => 
   return res.json({
     access_token: newTokens.access_token,
     refresh_token: newTokens.refresh_token, // Send the new refresh token
-    expires_in: 900
+    expires_in: 3600
   });
 });
 

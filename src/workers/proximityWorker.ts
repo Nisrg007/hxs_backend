@@ -5,6 +5,7 @@ import { EventService } from '../services/eventService';
 import { logger } from '../utils/logger';
 import { config } from '../config/environment';
 import { getRedisClient } from '../config/redis';
+import { AnyAaaaRecord } from 'dns';
 
 interface ProximityCheckJob {
   maxDistanceMeters: number;

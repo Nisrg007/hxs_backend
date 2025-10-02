@@ -12,13 +12,14 @@ export const config = {
   
   redis: {
     url: process.env.REDIS_URL || 'redis://localhost:6379',
+    password: process.env.REDIS_PASSWORD || 'Qo1bs7mvVGKaYQn75rvDD5IoLFnPKswc',
   },
   
   jwt: {
     secret: process.env.JWT_SECRET!,
     refreshSecret: process.env.JWT_REFRESH_SECRET!,
     accessExpiresIn: '60m',
-    refreshExpiresIn: '7d',
+    refreshExpiresIn: '60d',
   },
   
   admin: {

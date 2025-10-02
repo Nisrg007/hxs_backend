@@ -36,10 +36,20 @@ export const connectRedis = async (): Promise<void> => {
 
 export const getRedisClient = (): RedisClientType => {
   if (!redisClient) {
-    throw new Error('Redis client not initialized. Call connectRedis() first.');
+    redisClient = createClient({
+      url: config.redis.url, // e.g., 'redis://localhost:6379'
+      password: config.redis.password || undefined,
+    });
+
+    redisClient.on('error', (err) => {
+      console.error('Redis Client Error', err);
+    });
+
+    redisClient.connect().catch(console.error);
   }
   return redisClient;
 };
+
 
 export const disconnectRedis = async (): Promise<void> => {
   if (redisClient) {
