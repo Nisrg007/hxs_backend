@@ -52,12 +52,16 @@ export class ProximityWorker {
     this.worker.on('failed', (job: Job | undefined, error: Error) => {
       logger.error('Proximity check failed', { 
         jobId: job?.id,
-        error: error.message 
+        error: error.message,
+        errorStack: error.stack 
       });
     });
 
     this.worker.on('error', (error: Error) => {
-      logger.error('Proximity worker error:', error);
+      logger.error('Proximity worker error:', {
+         errorMessage: error.message,
+        errorStack: error.stack
+      });
     });
   }
 
@@ -113,7 +117,8 @@ export class ProximityWorker {
         logger.error('Failed to create proximity alert:', {
           cart1: pair.cart1.cart_id,
           cart2: pair.cart2.cart_id,
-          error: (error as Error).message
+          error: (error as Error).message,
+          errorStack: (error as Error).stack
         });
       }
     }

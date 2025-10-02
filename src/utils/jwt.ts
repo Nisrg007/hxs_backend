@@ -10,7 +10,7 @@ export interface JwtPayload {
 
 export const generateToken = (payload: Omit<JwtPayload, 'type'>, type: 'access' | 'refresh'): string => {
   const secret = type === 'access' ? process.env.JWT_SECRET! : process.env.JWT_REFRESH_SECRET!;
-  const expiresIn = type === 'access' ? '15m' : '7d';
+  const expiresIn = type === 'access' ? '60m' : '7d';
   
   const tokenPayload: JwtPayload = {
     ...payload,

@@ -116,7 +116,7 @@ async function startServer(): Promise<void> {
     await initializeWorkers();
     
     const port = config.port;
-    const server = app.listen(port, () => {
+    const server = app.listen(port,"0.0.0.0", () => {
       logger.info(`✅ Hocco Backend listening on port ${port}`);
       logger.info(`📊 Environment: ${config.nodeEnv}`);
       logger.info(`🌐 Health check available at http://localhost:${port}/health`);
