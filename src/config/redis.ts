@@ -1,6 +1,7 @@
 import { createClient, RedisClientType } from 'redis';
 import { logger } from '../utils/logger';
 import { config } from './environment';
+import IORedis from 'ioredis';
 
 let redisClient: RedisClientType | null = null;
 
