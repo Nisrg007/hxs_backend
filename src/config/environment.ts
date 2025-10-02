@@ -18,8 +18,8 @@ export const config = {
   jwt: {
     secret: process.env.JWT_SECRET!,
     refreshSecret: process.env.JWT_REFRESH_SECRET!,
-    accessExpiresIn: '60m',
-    refreshExpiresIn: '60d',
+    accessExpiresIn: '1m',
+    refreshExpiresIn: '4m',
   },
   
   admin: {

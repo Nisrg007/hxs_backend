@@ -98,7 +98,7 @@ export const loginWithAssignmentToken = asyncHandler(async (req: Request, res: R
   return res.json({
     access_token: tokens.access_token,
     refresh_token: tokens.refresh_token,
-    expires_in: 3600, // 15 minutes in seconds
+    expires_in: 1, // 15 minutes in seconds
     cart: {
       cart_id: cart.cart_id,
       vendor_id: cart.vendor_id,
@@ -161,15 +161,15 @@ export const refreshToken = asyncHandler(async (req: Request, res: Response) => 
 
   // FIX: Update BOTH token hashes in the database
   await CartAssignment.findByIdAndUpdate(assignment._id, {
-    access_token_hash: newTokens.access_token,
-    refresh_token_hash: newTokens.refresh_token
+    access_token_hash: await bcrypt.hash(newTokens.access_token!, 10),  // ✅ Hash it
+    refresh_token_hash: await bcrypt.hash(newTokens.refresh_token!, 10)
   });
 
   // FIX: Return BOTH new tokens to the client
   return res.json({
     access_token: newTokens.access_token,
     refresh_token: newTokens.refresh_token, // Send the new refresh token
-    expires_in: 3600
+    expires_in: 4
   });
 });
 
