@@ -108,7 +108,8 @@ app.use(cors({
   origin: process.env.ALLOWED_ORIGINS?.split(',') || [
     'http://localhost:3000',
     'http://localhost:3001', 
-    'https://your-frontend-domain.vercel.app'
+    'https://cart-backend-lac.vercel.app',
+    'https://cart-admin-panel.vercel.app',
   ],
   credentials: true
 }));
