@@ -21,8 +21,10 @@ app.use(helmet({
 
 app.use(cors({
   origin: process.env.ALLOWED_ORIGINS?.split(',') || [
-    'http://localhost:3000',
-    'http://localhost:3001'
+    'http://localhost:3000',     // Frontend dev
+    'http://localhost:3001',     // Admin panel dev
+    'https://your-frontend.vercel.app',     // Frontend production
+    'https://cart-admin-panel-git-admin-nisargs-projects-47512417.vercel.app'   // Admin panel production
   ],
   credentials: true
 }));
