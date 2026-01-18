@@ -3,14 +3,14 @@
   "name": "hocco-backend",
   "builds": [
     {
-      "src": "dist/server-vercel.js",
+      "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/server-vercel.js"
+      "dest": "/api/index.js"
     }
   ],
   "env": {

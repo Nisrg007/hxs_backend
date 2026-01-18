@@ -1,9 +1,6 @@
 # Dependencies
 node_modules
 
-# Source files (only compiled dist is needed)
-src
-
 # Development files
 .env
 .env.local
