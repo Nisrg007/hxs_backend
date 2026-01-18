@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "name": "hocco-backend",
+  "builds": [
+    {
+      "src": "dist/server-vercel.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/dist/server-vercel.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "dist/server-vercel.js": {
+      "maxDuration": 30
+    }
+  }
+}

@@ -7,8 +7,11 @@
   },
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node src/server.ts",
+    "dev:vercel": "nodemon --watch src --exec ts-node src/server-vercel.ts",
     "build": "tsc -p tsconfig.json",
+    "vercel-build": "npm run build && echo 'Build completed for Vercel deployment'",
     "start": "node dist/server.js",
+    "start:vercel": "node dist/server-vercel.js",
     "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
     "test": "jest --passWithNoTests",
     "healthcheck": "ts-node src/healthcheck.ts",
